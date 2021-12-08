@@ -47,7 +47,7 @@ public class ClientServiceProxy<T> implements InvocationHandler {
         //开启Netty 客户端，直连
         if (nettyClient == null) {
 
-            nettyClient = new NettyClient("172.16.0.96", 8888);
+            nettyClient = new NettyClient("localhost", 8888);
 
             System.out.println("开始连接服务端：" + new Date());
             nettyClient.connect();

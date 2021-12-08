@@ -38,7 +38,7 @@ public class ServerChildHandler extends SimpleChannelInboundHandler<RpcRequestPr
      * @return
      */
     private Object handler(RpcRequestProtocol request) throws Exception {
-        Class<?> clazz = Class.forName(request.getClassName() + "Test");
+        Class<?> clazz = Class.forName(request.getClassName() + "Impl");
         Method method = clazz.getMethod(request.getMethodName(), request.getParameterTypes());
         System.out.println("类：" + clazz.getName() + "执行方法：" + method.getName());
         Object object = clazz.newInstance();

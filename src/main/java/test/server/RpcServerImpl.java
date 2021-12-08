@@ -9,7 +9,7 @@ import java.util.Objects;
  * @date: 2021/12/6 17:24
  */
 @Service
-public class RpcServerTest implements RpcServer {
+public class RpcServerImpl implements RpcServer {
     @Override
     public String proServer(String type) {
         System.out.println("收到RPC调用");
