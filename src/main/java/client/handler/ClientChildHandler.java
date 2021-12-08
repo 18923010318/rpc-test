@@ -47,7 +47,7 @@ public class ClientChildHandler extends ChannelDuplexHandler {
     /**
      * 获取响应结果
      *
-     * @param requsetId
+     * @param requestId
      * @return
      */
     public RpcResponseProtocol getRpcResponse(String requestId) {

@@ -37,6 +37,11 @@ public class NettyServer {
         serverBootstrap.group(boss, worker)
                 .channel(NioServerSocketChannel.class)
                 .option(ChannelOption.SO_BACKLOG, 1024)
+                .option(ChannelOption.SO_BACKLOG, 300)
+                //有数据立即发送
+                .option(ChannelOption.TCP_NODELAY, true)
+                //保持连接
+                .childOption(ChannelOption.SO_KEEPALIVE, true)
                 .childHandler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
@@ -59,7 +64,7 @@ public class NettyServer {
      * @param serverBootstrap
      * @param port
      */
-    public void bind(final ServerBootstrap serverBootstrap,int port) {
+    public void bind(final ServerBootstrap serverBootstrap, int port) {
         serverBootstrap.bind(port).addListener(future -> {
             if (future.isSuccess()) {
                 System.out.println("端口绑定成功 port:" + port);
