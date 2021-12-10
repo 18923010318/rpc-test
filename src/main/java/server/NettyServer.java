@@ -37,7 +37,6 @@ public class NettyServer {
         serverBootstrap.group(boss, worker)
                 .channel(NioServerSocketChannel.class)
                 .option(ChannelOption.SO_BACKLOG, 1024)
-                .option(ChannelOption.SO_BACKLOG, 300)
                 //有数据立即发送
                 .option(ChannelOption.TCP_NODELAY, true)
                 //保持连接
