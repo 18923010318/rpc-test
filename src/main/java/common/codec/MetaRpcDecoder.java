@@ -23,6 +23,7 @@ public class MetaRpcDecoder extends ByteToMessageDecoder {
 
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
+        System.out.println("decode 1 " + byteBuf.readerIndex() +"  "+  byteBuf.writerIndex());
         // 因为之前编码的时候写入一个Int型，4个字节来表示长度
         if (byteBuf.readableBytes() < 4) {
             return;
@@ -39,6 +40,8 @@ public class MetaRpcDecoder extends ByteToMessageDecoder {
         byteBuf.readBytes(data);
         Object obj = serializer.deserialize(clazz, data);
         list.add(obj);
+
+        System.out.println("decode 2 " + byteBuf.readerIndex() +"  "+  byteBuf.writerIndex());
     }
 
 }

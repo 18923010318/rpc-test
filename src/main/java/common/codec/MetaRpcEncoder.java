@@ -21,10 +21,12 @@ public class MetaRpcEncoder extends MessageToByteEncoder {
 
     @Override
     protected void encode(ChannelHandlerContext channelHandlerContext, Object o, ByteBuf byteBuf) throws Exception {
+        System.out.println("encode 1 " + byteBuf.readerIndex() +"  "+ byteBuf.writerIndex());
         if (clazz != null && clazz.isInstance(o)) {
             byte[] bytes = serializer.serialize(o);
             byteBuf.writeInt(bytes.length);
             byteBuf.writeBytes(bytes);
+            System.out.println("encode 2 " + byteBuf.readerIndex() +"  "+ byteBuf.writerIndex());
         }
     }
 }
