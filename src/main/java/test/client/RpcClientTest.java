@@ -17,7 +17,7 @@ public class RpcClientTest {
 
     public String rpcRequest(String type) throws Exception {
         RpcServer rpcServer = ProxyFactory.getClientProxy(RpcServer.class);
-        return rpcServer.proServer("\"new\"");
+        return rpcServer.proServer(type);
     }
 
 }

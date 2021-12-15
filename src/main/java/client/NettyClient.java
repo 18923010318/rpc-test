@@ -110,8 +110,7 @@ public class NettyClient {
 
         System.out.println("发送消息request: " + request);
         channel.writeAndFlush(request);
-        DefaultFuture future = new DefaultFuture();
-        clientHandler.setRequestId(request.getRequestId(), future);
+        clientHandler.setRequestId(request.getRequestId(),  new DefaultFuture());
 
         return clientHandler.getRpcResponse(request.getRequestId());
     }

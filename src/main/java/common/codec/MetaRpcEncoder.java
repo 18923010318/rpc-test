@@ -26,7 +26,8 @@ public class MetaRpcEncoder extends MessageToByteEncoder {
             byte[] bytes = serializer.serialize(o);
             byteBuf.writeInt(bytes.length);
             byteBuf.writeBytes(bytes);
-            System.out.println("encode 2 " + byteBuf.readerIndex() +"  "+ byteBuf.writerIndex());
+
         }
+        System.out.println("encode 2 " + byteBuf.readerIndex() +"  "+ byteBuf.writerIndex());
     }
 }

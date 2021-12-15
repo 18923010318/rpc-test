@@ -9,8 +9,7 @@ public class SpringboottestApplication {
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(SpringboottestApplication.class, args);
-        NettyServer nettyServer = new NettyServer();
-        nettyServer.start();
+
     }
 
 }
